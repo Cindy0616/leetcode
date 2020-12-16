@@ -40,3 +40,20 @@ var numUniqueEmails = function(emails) {
   }
   return result.length;
 }
+
+
+
+/* second way to solve it*/
+var numUniqueEmail = function(emails){
+  const set = new Set();
+  for (let email of emails) {
+    const address = normalizeEmail(email);
+    set.add(address):
+  }
+  return set.size;
+}
+function normalizeEmail(email){
+  let[local, domain] = email.split("@");
+  local = local.replace(/(\.)|(\+.*)/g, "");
+  return local + "@" + domain;
+}
