@@ -44,3 +44,21 @@ var licenseKeyFormatting = function(S, K) {
   }
   return result;
 }
+
+/*
+ * @param {string} S
+ * @param {number} K
+ * @return {string}
+ */
+var licenseKeyFormatting = function(S, K) {
+  S = S.replace(/-/g, '').toUpperCase();
+  const result1 = [];
+  while (S.length >= K) {
+    result1.unshift(S.slice(-K));
+    S = S.slice(0, -K);
+  }
+  if (S.length) {
+    result1.unshift(S);
+  }
+  return result1.join('-');
+};
