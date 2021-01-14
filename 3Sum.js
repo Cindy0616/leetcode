@@ -14,7 +14,7 @@ var threeSum = function (nums) {
   for (var i = 0; i < nums.length - 1; i++) {
     // if i larger than zero after sorted , no solution can make to 0
     if (i > 0 && nums[i] === nums[i - 1]) {
-      continus;
+      continue;
     }
 
     //set the pointer left and right
