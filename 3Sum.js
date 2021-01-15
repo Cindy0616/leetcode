@@ -86,21 +86,21 @@ var threeSum = function(nums) {
 		if (i > 0 && nums[i] == nums[i - 1]) {
 			continue;
 		}
-		for (var j = i + 1, k = nums.length - 1; j < k;) {
-			if (nums[i] + nums[j] + nums[k] === 0) {
-				rtn.push([nums[i], nums[j], nums[k]]);
-				j++;
-				k--;
-				while (j < k && nums[j] == nums[j - 1]) {
-					j++;
+		for (var leftp = i + 1, rightp = nums.length - 1; leftp < rightp;) {
+			if (nums[i] + nums[leftp] + nums[rightp] === 0) {
+				rtn.push([nums[i], nums[leftp], nums[rightp]]);
+				leftp++;
+				rightp--;
+				while (leftp < rightp && nums[leftp] == nums[leftp - 1]) {
+					leftp++;
 				}
-				while (j < k && nums[k] == nums[k + 1]) {
-					k--;
+				while (leftp < rightp && nums[rightp] == nums[rightp + 1]) {
+					rightp--;
 				}
-			} else if (nums[i] + nums[j] + nums[k] > 0) {
-				k--;
+			} else if (nums[i] + nums[leftp] + nums[rightp] > 0) {
+				rightp--;
 			} else {
-				j++;
+				leftp++;
 			}
 		}
 	}
@@ -123,7 +123,7 @@ var threeSum = function(nums) {
     if( i > 0 && nums[i] === nums[i - 1]){
       continue;
     }
-    for (var leftp = i + 1; rightp = nums.length - 1; leftp < rightp ){
+    for (var leftp = i + 1; rightp = nums.length - 1; leftp < rightp; ){
       if(nums[i] + nums[leftp] + nums[rightp] ==== 0) {
         result.push([nums[i], nums[leftp], nums[rightp]]);
         leftp++;
