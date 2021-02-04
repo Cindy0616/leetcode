@@ -53,5 +53,29 @@ var findMedianSortedArrays = function( nums1 , nums2){
 }
 */
 var findMedianSortedArrays = function( nums1 , nums2) {
-
+  let allLength = nums1.length + nums2.length;
+  let i = 0; let j = 0;
+  let current, last;
+  while ( i + j <= allLenght/2) {
+    if ( current) {
+      last = current;
+    }
+    let first = nums1[i];
+    let second = nums2[j];
+    if(first === undefined){
+      current = second;
+      j++;
+    }else if( second === undefined ){
+      current = first;
+      i++;
+    }else if(first < second) {
+      current = first;
+      i++;
+    }else {
+      current = second;
+      j++;
+    }
+  }
+  if(current === 0 || last == 0){ return 0 }
+  return allLength %2 === 0 ? (last + current)/1 : current;
 }
