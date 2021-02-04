@@ -26,5 +26,32 @@ function median (arr){
   else{
     return (arr[half-1] + arr[half])/2.0;
   }
+}
+//another way
+//since these two arrays are sorted, so only need to go through half way of each array.
+/*
+var findMedianSortedArrays = function( nums1 , nums2){
+  let allLength = nums1.length + nums2.length;
+  let middle = Math.floor(allLength/2);
+  let even = allLength %2 === 0;
+  let i = 0;
+  let j = 0;
+  last, previous;
+  while( i + j < middle + 1){
+    if (typeof last != 'undefined') {
+      previous = last;
+    }
+    if ( nums1[i] < nums2[j] || j === nums2.length) {
+      lst = nums1[i];
+      i++;
+    }else {
+      last = nums2[j];
+      j++;
+    }
+  }
+  return even ? (previous + last)/2 : last;
+}
+*/
+var findMedianSortedArrays = function( nums1 , nums2) {
 
 }
